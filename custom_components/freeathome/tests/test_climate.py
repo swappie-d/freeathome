@@ -107,6 +107,13 @@ class TestClimate:
         climate.update_datapoint('odp0009', '33')
         assert climate.ecomode == False
 
+        # Test heating operation state turned to heating
+        await client.update_devices(load_fixture("1004_update_current_action_heating.xml"))
+        assert climate.current_heating_action == True
+
+        # Test heating operation state turned to idle
+        await client.update_devices(load_fixture("1004_update_current_action_idle.xml"))
+        assert climate.current_heating_action == False
 
     async def test_climate_no_room_name(self, _):
         client = get_client()

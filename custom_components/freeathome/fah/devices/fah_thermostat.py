@@ -12,6 +12,7 @@ from ..const import (
         PID_STATUS_INDICATION,
         PID_MEASURED_TEMPERATURE,
         PID_HEATING_DEMAND,
+        PID_HEATING_ACTIVE,
         PARAM_TEMPERATURE_CORRECTION,
     )
 
@@ -37,6 +38,7 @@ class FahThermostat(FahDevice):
                         PID_CONTROLLER_ON_OFF,
                         PID_STATUS_INDICATION,
                         PID_MEASURED_TEMPERATURE,
+                        PID_HEATING_ACTIVE,
                         PID_HEATING_DEMAND,
                         ]
                     }
@@ -101,6 +103,10 @@ class FahThermostat(FahDevice):
         elif self._datapoints.get(PID_MEASURED_TEMPERATURE) == dp:
             self.current_temperature = value
             LOG.info("thermostat %s (%s) dp %s current temperature %s", self.name, self.lookup_key, dp, value)
+
+        elif self._datapoints.get(PID_HEATING_ACTIVE) == dp:
+            self.current_heating_action = value
+            LOG.info("thermostat %s (%s) dp %s current heating action %s", self.name, self.lookup_key, dp, value)
 
         elif self._datapoints.get(PID_HEATING_DEMAND) == dp:
             self.current_actuator = value

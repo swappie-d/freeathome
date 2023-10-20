@@ -48,11 +48,11 @@ FUNCTION_IDS_DIMMING_ACTUATOR = [
         ]
 
 FUNCTION_IDS_ROOM_TEMPERATURE_CONTROLLER = [
-        0x000A, # Room temperature controller with fan speed
-        0x000B, # Room temperature controller extension unit
-        0x0023, # Room temperature controller
-        0x003E, # Room temperature controller with fan speed wireless?
-        0x003F, # Room temperature controller with fan speed wireless?
+        0x000A, # FID_ROOM_TEMPERATURE_CONTROLLER_MASTER_WITH_FAN
+        0x000B, # FID_ROOM_TEMPERATURE_CONTROLLER_SLAVE
+        0x0023, # FID_ROOM_TEMPERATURE_CONTROLLER_MASTER_WITHOUT_FAN
+        0x003E, # FID_RADIATOR_ACTUATOR_MASTER
+        0x003F, # FID_RADIATOR_ACTUATOR_SLAVE
         ]
 
 FUNCTION_IDS_BLIND_ACTUATOR = [
@@ -154,6 +154,7 @@ PID_SET_VALUE_TEMPERATURE = 0x0033
 PID_CONTROLLER_ON_OFF = 0x0038
 PID_STATUS_INDICATION = 0x0036
 PID_MEASURED_TEMPERATURE = 0x0130
+PID_HEATING_ACTIVE = 0x014B
 PID_HEATING_DEMAND = 0x014D
 
 # Thermostat parameters
